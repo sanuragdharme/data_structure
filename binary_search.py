@@ -1,5 +1,8 @@
 # For Binary Search : List has to in sorted order
 # Find given number in the list
+# Complexity is O(n)
+# Worst Case - Complexity is O(log N)
+# Search faster than Linear Search
 
 position = -1
 
@@ -33,3 +36,23 @@ if get_binary_search(number_list, num):
 else:
     print("Number is not available")
 
+
+def binary_search(sorted_list, key):
+    min_index = 0
+    max_index = len(sorted_list) - 1
+
+    while min_index <= max_index:
+        mid = (min_index + max_index) // 2
+
+        if sorted_list[mid] == key:
+            return mid
+        elif sorted_list[mid] < key:
+            min_index = mid + 1
+        else:
+            max_index = mid - 1
+
+    return -1
+
+
+numbers_list = [25, 29, 32, 34, 37, 43, 45, 49, 55, 66, 78, 89, 99]
+print("Binary Search: ", binary_search(numbers_list, 49))
